@@ -9774,11 +9774,73 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function Card(props) {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h1",
+      { className: "well row  col-md-offset-1" },
+      " ",
+      props.elemento,
+      "    "
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "col-md-offset-1 col-md-2 text-center" },
+      _react2.default.createElement(
+        "button",
+        { className: "btn btn-fab btn-success ", onClick: function onClick() {
+            return props.click(props, "4");
+          } },
+        " 4 "
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "col-md-2 text-center" },
+      _react2.default.createElement(
+        "button",
+        { className: "btn btn-fab btn-success", onClick: function onClick() {
+            return props.click(props, "2");
+          } },
+        " 2 "
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "col-md-2 text-center" },
+      _react2.default.createElement(
+        "button",
+        { className: "btn btn-fab btn-success", onClick: function onClick() {
+            return props.click(props, "3");
+          } },
+        " 3 "
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "col-md-2 text-center" },
+      _react2.default.createElement(
+        "button",
+        { className: "btn btn-fab btn-success", onClick: function onClick() {
+            return props.click(props, "1");
+          } },
+        " 1 "
+      )
+    )
+  );
+}
 
 var App = function (_Component) {
   _inherits(App, _Component);
@@ -9789,31 +9851,164 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      cola0: ['as', 'b', 'c', 'd', 'e'],
+      cola0: ['a', 'b', 'c', 'd', 'e'],
       cola1: [],
       cola2: [],
-      cola3: []
+      cola3: [],
+      cola4: [],
+      seguimiento: [],
+      seguimiento1: [],
+      seguimiento2: [],
+      seguimiento3: []
     };
+    _this.click = _this.click.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
-    key: 'render',
+    key: "click",
+    value: function click(props, param1) {
+      console.log("CLICK");
+      console.log(param1);
+      console.log(props.cola);
+      switch (props.cola) {
+        case "cola0":
+          console.log("ENTRE a cola0");
+          var seguimiento = [param1].concat(_toConsumableArray(this.state.seguimiento));
+          this.setState({ seguimiento: seguimiento });
+          console.log(seguimiento[0], seguimiento[1], seguimiento[2], seguimiento[3], seguimiento.length);
+          if (seguimiento.length == 4) {
+            console.log("ENTRE 4 digitoscola0");
+            if (seguimiento[0] == "1" && seguimiento[1] == "2" && seguimiento[2] == "3" && seguimiento[3] == "4") {
+              console.log("ENTRE 1234 cola0");
+
+              var _state$cola = _toArray(this.state.cola0),
+                  primer = _state$cola[0],
+                  cola0 = _state$cola.slice(1);
+
+              var cola1 = [primer].concat(_toConsumableArray(this.state.cola1));
+              var _seguimiento = [];
+              this.setState({ seguimiento: _seguimiento });
+              this.setState({ cola0: cola0 });
+              this.setState({ cola1: cola1 });
+            } else {
+              console.log("ENTRE Limpiar");
+              var _seguimiento2 = [];
+              this.setState({ seguimiento: _seguimiento2 });
+            }
+          }
+
+          break;
+        case "cola1":
+          console.log("ENTRE a cola1");
+          var seguimiento1 = [param1].concat(_toConsumableArray(this.state.seguimiento1));
+          this.setState({ seguimiento1: seguimiento1 });
+          console.log(seguimiento[0], seguimiento[1], seguimiento[2], seguimiento[3], seguimiento.length);
+          if (seguimiento1.length == 4) {
+            console.log("ENTRE 4 digitos cola1");
+            if (seguimiento1[0] == "1" && seguimiento1[1] == "2" && seguimiento1[2] == "3" && seguimiento1[3] == "4") {
+              console.log("ENTRE 1234 cola1");
+
+              var _state$cola2 = _toArray(this.state.cola1),
+                  _primer = _state$cola2[0],
+                  _cola = _state$cola2.slice(1);
+
+              var cola2 = [_primer].concat(_toConsumableArray(this.state.cola2));
+              var _seguimiento3 = [];
+              this.setState({ seguimiento1: _seguimiento3 });
+              this.setState({ cola1: _cola });
+              this.setState({ cola2: cola2 });
+            } else {
+              console.log("ENTRE Limpiar");
+              var _seguimiento4 = [];
+              this.setState({ seguimiento1: _seguimiento4 });
+            }
+          }
+
+          break;
+        case "cola2":
+          console.log("ENTRE a cola2");
+          var seguimiento2 = [param1].concat(_toConsumableArray(this.state.seguimiento2));
+          this.setState({ seguimiento2: seguimiento2 });
+          console.log(seguimiento[0], seguimiento[1], seguimiento[2], seguimiento[3], seguimiento.length);
+          if (seguimiento2.length == 4) {
+            console.log("ENTRE 4 digitos cola2");
+            if (seguimiento2[0] == "1" && seguimiento2[1] == "2" && seguimiento2[2] == "3" && seguimiento2[3] == "4") {
+              console.log("ENTRE 1234 cola2");
+
+              var _state$cola3 = _toArray(this.state.cola2),
+                  _primer2 = _state$cola3[0],
+                  _cola2 = _state$cola3.slice(1);
+
+              var cola3 = [_primer2].concat(_toConsumableArray(this.state.cola3));
+              var _seguimiento5 = [];
+              this.setState({ seguimiento2: _seguimiento5 });
+              this.setState({ cola2: _cola2 });
+              this.setState({ cola3: cola3 });
+            } else {
+              console.log("ENTRE Limpiar");
+              var _seguimiento6 = [];
+              this.setState({ seguimiento2: _seguimiento6 });
+            }
+          }
+
+          break;
+        case "cola3":
+          console.log("ENTRE a cola3");
+          var seguimiento3 = [param1].concat(_toConsumableArray(this.state.seguimiento3));
+          this.setState({ seguimiento3: seguimiento3 });
+          console.log(seguimiento[0], seguimiento[1], seguimiento[2], seguimiento[3], seguimiento.length);
+          if (seguimiento3.length == 4) {
+            console.log("ENTRE 4 digitos cola3");
+            if (seguimiento3[0] == "1" && seguimiento3[1] == "2" && seguimiento3[2] == "3" && seguimiento3[3] == "4") {
+              console.log("ENTRE 1234 cola3");
+
+              var _state$cola4 = _toArray(this.state.cola3),
+                  _primer3 = _state$cola4[0],
+                  _cola3 = _state$cola4.slice(1);
+
+              var cola4 = [_primer3].concat(_toConsumableArray(this.state.cola4));
+              var _seguimiento7 = [];
+              this.setState({ seguimiento: _seguimiento7 });
+              this.setState({ cola3: _cola3 });
+              this.setState({ cola4: cola4 });
+            } else {
+              console.log("ENTRE Limpiar");
+              var _seguimiento8 = [];
+              this.setState({ seguimiento3: _seguimiento8 });
+            }
+          }
+
+          break;
+      }
+    }
+  }, {
+    key: "render",
     value: function render() {
 
-      var catViews = this.state.cola0.map(function (el) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'well', key: el.toString() },
-          el,
-          ' '
-        );
-      });
-
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
-        catViews
+        _react2.default.createElement(
+          "div",
+          { className: "col-md-10 row" },
+          _react2.default.createElement(Card, { elemento: this.state.cola0, cola: "cola0", click: this.click })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "col-md-10 row" },
+          _react2.default.createElement(Card, { elemento: this.state.cola1, cola: "cola1", click: this.click })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "col-md-10 row" },
+          _react2.default.createElement(Card, { elemento: this.state.cola2, cola: "cola2", click: this.click })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "col-md-10 row" },
+          _react2.default.createElement(Card, { elemento: this.state.cola3, cola: "cola3", click: this.click })
+        )
       );
     }
   }]);
