@@ -26,7 +26,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {  
-      cola0:['a','b','c','d','e','f','g'],
+      cola0:['a','b','c','d','e','f','g','h'],
+      //cola0:['a','b'],      
       cola1:[],
       cola2:[],
       cola3:[],
@@ -34,35 +35,29 @@ class App extends Component {
       seguimiento:[],
       seguimiento1:[],
       seguimiento2:[],
-      seguimiento3:[]
+      seguimiento3:[],
+      time1: Date.now(), 
+      time4: Date.now() 
     }
     this.click = this.click.bind(this);
   }
 
-// var startTime = new Date('1/1/1990');
-// var startMsec = startTime.getMilliseconds();
-// startTime.setTime(5000000);
-// var elapsed = (startTime.getTime() - startMsec) / 1000; 
-// document.write(elapsed);
-
-
-
-
 
 click(props,param1) {
-    console.log("CLICK");
-    console.log(param1);
-    console.log(props.cola);
+      // console.log("prueba1", [1, 2] === [1, 2] );
+      // console.log("prueba2", [1, 2] == [1, 2] );
+    // console.log(param1);
+    // console.log(props.cola);
     switch (props.cola) {
         case "cola0":
-            console.log("ENTRE a cola0" );         
+            // console.log("ENTRE a cola0" );         
             const seguimiento = [param1,...this.state.seguimiento];  
             this.setState({seguimiento});
-            console.log(seguimiento[0], seguimiento[1], seguimiento[2], seguimiento[3] , seguimiento.length );
+            console.log("cola0", seguimiento[0], seguimiento[1], seguimiento[2], seguimiento[3] , seguimiento.length );
             if (seguimiento.length == 4)  {  
-                console.log("ENTRE 4 digitoscola0" );
+                // console.log("ENTRE 4 digitoscola0" );
                if (seguimiento[0] == "1" && seguimiento[1] == "2" && seguimiento[2] == "3" && seguimiento[3] == "4") { 
-                  console.log("ENTRE 1234 cola0" );    
+                  // console.log("ENTRE 1234 cola0" );    
                   const [primer, ...cola0] = this.state.cola0;
                   const cola1 = [primer,...this.state.cola1];
                   const seguimiento = [];                
@@ -70,7 +65,7 @@ click(props,param1) {
                   this.setState({cola0});                    
                   this.setState({cola1});        
                 } else {
-                  console.log("ENTRE Limpiar" );  
+                  // console.log("ENTRE Limpiar" );  
                   const seguimiento = [];  
                   this.setState({seguimiento});
                 }
@@ -79,14 +74,14 @@ click(props,param1) {
 
             break;
         case "cola1":
-            console.log("ENTRE a cola1" );  
+            // console.log("ENTRE a cola1" );  
             const seguimiento1 = [param1,...this.state.seguimiento1];  
             this.setState({seguimiento1}); 
-            console.log(seguimiento1[0], seguimiento1[1], seguimiento1[2], seguimiento1[3] , seguimiento1.length );
+            console.log("cola1", seguimiento1[0], seguimiento1[1], seguimiento1[2], seguimiento1[3] , seguimiento1.length );
             if (seguimiento1.length == 4)  {
-               console.log("ENTRE 4 digitos cola1" );
+               // console.log("ENTRE 4 digitos cola1" );
                if (seguimiento1[0] == "1" && seguimiento1[1] == "2" && seguimiento1[2] == "3" && seguimiento1[3] == "4") {
-                console.log("ENTRE 1234 cola1" );             
+                // console.log("ENTRE 1234 cola1" );             
                 const [primer, ...cola1] = this.state.cola1;
                 const cola2 = [primer,...this.state.cola2];
                 const seguimiento1 = [];                
@@ -94,7 +89,7 @@ click(props,param1) {
                 this.setState({cola1});                    
                 this.setState({cola2}); 
                 } else {
-                  console.log("ENTRE Limpiar" );  
+                  // console.log("ENTRE Limpiar" );  
                   const seguimiento1 = [];  
                   this.setState({seguimiento1});
                 }                 
@@ -102,14 +97,14 @@ click(props,param1) {
 
             break;
         case "cola2":
-            console.log("ENTRE a cola2" );         
+            // console.log("ENTRE a cola2" );         
             const seguimiento2 = [param1,...this.state.seguimiento2];  
             this.setState({seguimiento2});            
-            console.log(seguimiento2[0], seguimiento2[1], seguimiento2[2], seguimiento2[3] , seguimiento2.length );
+            console.log("cola2", seguimiento2[0], seguimiento2[1], seguimiento2[2], seguimiento2[3] , seguimiento2.length );
             if (seguimiento2.length == 4)  {
-               console.log("ENTRE 4 digitos cola2" );              
+               // console.log("ENTRE 4 digitos cola2" );              
                if (seguimiento2[0] == "1" && seguimiento2[1] == "2" && seguimiento2[2] == "3" && seguimiento2[3] == "4") { 
-                console.log("ENTRE 1234 cola2" );                            
+                // console.log("ENTRE 1234 cola2" );                            
                 const [primer, ...cola2] = this.state.cola2;
                 const cola3 = [primer,...this.state.cola3];
                 const seguimiento2 = [];                
@@ -117,7 +112,7 @@ click(props,param1) {
                 this.setState({cola2});                    
                 this.setState({cola3});
                 } else {
-                  console.log("ENTRE Limpiar" );                    
+                  // console.log("ENTRE Limpiar" );                    
                   const seguimiento2 = [];  
                   this.setState({seguimiento2});
                 }                     
@@ -125,22 +120,32 @@ click(props,param1) {
 
             break;
         case "cola3":
-            console.log("ENTRE a cola3" ); 
+            // console.log("ENTRE a cola3" ); 
             const seguimiento3 = [param1,...this.state.seguimiento3];  
             this.setState({seguimiento3}); 
-            console.log(seguimiento3[0], seguimiento3[1], seguimiento3[2], seguimiento3[3] , seguimiento3.length );            
+            console.log("cola3", seguimiento3[0], seguimiento3[1], seguimiento3[2], seguimiento3[3] , seguimiento3.length );            
             if (seguimiento3.length == 4)  {
-               console.log("ENTRE 4 digitos cola3" );              
+               // console.log("ENTRE 4 digitos cola3" );              
                if (seguimiento3[0] == "1" && seguimiento3[1] == "2" && seguimiento3[2] == "3" && seguimiento3[3] == "4") {
-                console.log("ENTRE 1234 cola3" );                                
+                // console.log("ENTRE 1234 cola3" );                                
                 const [primer, ...cola3] = this.state.cola3;
                 const cola4 = [primer,...this.state.cola4];
                 const seguimiento3 = [];                
                 this.setState({seguimiento3});
                 this.setState({cola3});                    
                 this.setState({cola4}); 
+                // console.log("COLAS", this.state.cola0 , this.state.cola1 , this.state.cola2 ,this.state.cola3);                 
+                  if (this.state.cola0[0] == undefined && this.state.cola1[0] == undefined && this.state.cola2[0] == undefined && this.state.cola3[1] == undefined) {
+                    console.log("G A M E    O V E R")
+                    const time2 = Date.now(); 
+                    const time3 = ((time2 - this.state.time1)/1000);
+                    console.log("Elapsed Time  en  segundos: ", time3); 
+                    // this.setState({time4: time3}); 
+                    alert(`GAME OVER ${time3}`);
+                  }
+
                 } else {
-                  console.log("ENTRE Limpiar" );                  
+                  // console.log("ENTRE Limpiar" );                  
                   const seguimiento3 = [];  
                   this.setState({seguimiento3});
                 }  
